@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider } from "@tanstack/react-router";
+import {
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+  createRouter,
+  Outlet,
+} from "@tanstack/react-router";
 import "./styles.css";
-import { Toaster } from "@/components/ui/sonner";
 import { getRouter } from "./router";
 
 function Field() {
@@ -13,20 +17,12 @@ function Field() {
 
 const mode = new URLSearchParams(window.location.search).get("mode") ?? "bare";
 
+const rootRoute = createRootRoute({ component: () => <Outlet /> });
+const indexRoute = createRoute({ getParentRoute: () => rootRoute, path: "/", component: Field });
+const miniRouter = createRouter({ routeTree: rootRoute.addChildren([indexRoute]) });
+
 function App() {
-  if (mode === "toaster")
-    return (
-      <>
-        <Field />
-        <Toaster position="top-right" richColors />
-      </>
-    );
-  if (mode === "query")
-    return (
-      <QueryClientProvider client={new QueryClient()}>
-        <Field />
-      </QueryClientProvider>
-    );
+  if (mode === "minirouter") return <RouterProvider router={miniRouter} />;
   if (mode === "router") return <RouterProvider router={getRouter()} />;
   return <Field />;
 }
