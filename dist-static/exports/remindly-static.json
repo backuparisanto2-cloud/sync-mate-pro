@@ -1,9 +1,9 @@
 {
   "file": "remindly-static.zip",
-  "bytes": 0,
-  "builtAt": "2026-08-15T15:16:40.931Z",
-  "fileCount": 10,
-  "valid": false,
+  "bytes": 270827,
+  "builtAt": "2026-08-15T15:17:00.846Z",
+  "fileCount": 11,
+  "valid": true,
   "checks": [
     {
       "id": "entry",
@@ -32,7 +32,7 @@
     {
       "id": "no-secrets",
       "label": "Tidak ada rahasia server yang ikut",
-      "ok": false,
+      "ok": true,
       "detail": "Bundel tidak memuat service role key atau rahasia server lainnya."
     },
     {
