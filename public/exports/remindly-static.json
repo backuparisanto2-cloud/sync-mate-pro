@@ -1,0 +1,45 @@
+{
+  "file": "remindly-static.zip",
+  "bytes": 541832,
+  "builtAt": "2026-08-15T15:30:23.438Z",
+  "fileCount": 12,
+  "valid": true,
+  "checks": [
+    {
+      "id": "entry",
+      "label": "Entry point index.html tersedia",
+      "ok": true,
+      "detail": "index.html memuat div root dan tag script bundel."
+    },
+    {
+      "id": "assets",
+      "label": "Aset JS/CSS lengkap",
+      "ok": true,
+      "detail": "1 berkas JS dan 1 berkas CSS."
+    },
+    {
+      "id": "relative",
+      "label": "Jalur aset relatif (aman di subfolder)",
+      "ok": true,
+      "detail": "Semua referensi aset memakai ./assets sehingga bisa dipasang di subfolder."
+    },
+    {
+      "id": "credentials",
+      "label": "Kredensial publik backend ter-inject",
+      "ok": true,
+      "detail": "URL backend dan kunci publik tersedia di bundel."
+    },
+    {
+      "id": "no-secrets",
+      "label": "Tidak ada rahasia server yang ikut",
+      "ok": true,
+      "detail": "Bundel tidak memuat service role key atau rahasia server lainnya."
+    },
+    {
+      "id": "spa-fallback",
+      "label": "Konfigurasi rewrite hosting disertakan",
+      "ok": true,
+      "detail": ".htaccess, _redirects, vercel.json, dan 404.html ikut dalam paket."
+    }
+  ]
+}
