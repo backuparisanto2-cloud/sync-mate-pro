@@ -30,6 +30,8 @@ export default defineConfig({
     dedupe: ["react", "react-dom", "@tanstack/react-router"],
   },
   build: {
+    minify: false,
+    sourcemap: true,
     outDir: "dist-static",
     emptyOutDir: true,
     rollupOptions: {
